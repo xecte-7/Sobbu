@@ -1,362 +1,439 @@
-#!/usr/bin/env python3
+#!/usr/env python3
 # -*- encode: utf-8 -*-
 
-''' Version 1.0 start written on November 4th 2021 '''
+''' SOBBU version 1.1 coded by Muhammad Rizky (Dr-3AM) '''
 
-### START Import Module SECTION
+### IMPORTING MODULES
+import binascii
+#from multiprocessing.sharedctypes import Value
+#from pydoc import plain
+#from statistics import mode
 try:
-	print("[*] Importing modules..")
-	import colored, base64, hashlib
-	import os, sys, platform, datetime
-	print("[^] Successfully importing modules..")
-except ImportError:
-	print("[!] Error when importing module! Make sure you've installed all required modules..")
-	print("    Use command: pip install -r requirements.txt")
-	exit(0)
+    print("[*] Importing modules .", end='\r')
+    import colored, hashlib, base64, urllib.parse
+    print("[*] Importing modules ..", end='\r')
+    import os, sys, platform, datetime
+    print("[*] Importing modules ...")
+    print("[+] Successfully import all required modules")
+except:
+    print("\n[!] Error when importing modules! Abort process..")
+    print("      Make sure you've installed all required modules in 'requirements.txt'")
+    exit()
 
-
-### START Coloring Variable SECTION
+### VARIABLE WARNA
 	# for Style
 cl_reset = colored.style.RESET
-cl_bold = colored.style.BOLD
+cl_bold = colored.attr("bold")
 	# for Foreground
-cl_fg_white = colored.fore.WHITE
-cl_fg_red = colored.fore.LIGHT_RED
-cl_fg_lgreen = colored.fore.LIGHT_GREEN
-cl_fg_yellow = colored.fg(227)
+clfg_w = colored.fore.WHITE
+clfg_r = colored.fore.LIGHT_RED
+clfg_lg = colored.fore.LIGHT_GREEN
+clfg_y = colored.fg(227)
 	# for Background
 cl_bg_white = colored.back.WHITE
 cl_bg_red = colored.back.LIGHT_RED
 cl_bg_lgreen = colored.back.LIGHT_GREEN
 cl_bg_yellow = colored.bg(227)
 
+### GLOBAL VARIABLE
+opsys = platform.system()
+mode_alg = ""
 
-## START SHA Family Tool
-sha_menu = '''
-[{2}01{1}] SHA-1
-[{2}02{1}] SHA-224
-[{2}03{1}] SHA-256
-[{2}04{1}] SHA-384
-[{2}05{1}] SHA-512
-'''.format(cl_reset, cl_fg_white, cl_fg_red)
-def tool_sha():
-	algo = ""
-	plaintext = input(r"[{2}?{1}]--[{2}SHA-Family{1}] Plaintext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-	if plaintext == "" or plaintext == None:
-		tool_sha()
-	print(sha_menu)
-	opsi_sha = input(r"[{2}?{1}]--[{2}SHA-Family{1}] Choose algorithm >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-	if opsi_sha in ["1","01"]:
-		algo = "SHA-1"
-		ciphertext = hashlib.sha1(bytes(plaintext,'utf-8')).hexdigest()
-	elif opsi_sha in ["2","02"]:
-		algo = "SHA-224"
-		ciphertext = hashlib.sha224(bytes(plaintext,'utf-8')).hexdigest()
-	elif opsi_sha in ["3", "03"]:
-		algo = "SHA-256"
-		ciphertext = hashlib.sha256(bytes(plaintext,'utf-8')).hexdigest()
-	elif opsi_sha in ["4", "04"]:
-		algo = "SHA-384"
-		ciphertext = hashlib.sha384(bytes(plaintext,'utf-8')).hexdigest()
-	elif opsi_sha in ["5", "05"]:
-		algo = "SHA-512"
-		ciphertext = hashlib.sha512(bytes(plaintext,'utf-8')).hexdigest()
-	elif opsi_sha in ["<","back","BACK","Back"]:
-		main_menu()
-	elif opsi_sha in ["exit","EXIT","Exit"]:
-		sys.exit(0)
-	else:
-		print("{1}[!] There's no such option! Choose SHA-1 as default...".format(cl_reset, cl_fg_red))
-	print("[{3}+{1}]--[{2}SHA-Family{1}] Ciphertext ({5}) >> {3}{4}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, ciphertext, algo))
-	print()
-	jeda()
-	main_menu()
+banner = r'''{0}{1}
+    ::::::::   ::::::::  :::::::::  :::::::::  :::    :::     ::: ::: 
+   :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:    :+:     :+: :+: 
+   +:+        +:+    +:+ +:+    +:+ +:+    +:+ +:+    +:+     +:+ +:+ 
+   +#++:++#++ +#+    +:+ +#++:++#+  +#++:++#+  +#+    +:+     +#+ +#+ 
+          +#+ +#+    +#+ +#+    +#+ +#+    +#+ +#+    +#+     +#+ +#+ 
+   #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#             
+    ########   ########  #########  #########   ########      ### ###
+{2}
+ Cryptography Tool with various encoding and decoding algorithms (v1.1)
+ Made with {3}<3 {2}by {3}Muhammad Rizky (Dr-3AM){2} // Special Thanks to {3}PentaByte
+{0}'''.format(cl_reset, clfg_lg, clfg_w, clfg_r, cl_bold)
 
-## START MD5 Tool
-def tool_md5():
-	plaintext = input(r"[{2}?{1}]--[{2}MD5{1}] Plaintext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-	if plaintext == "" or plaintext == None:
-		tool_md5()
-	#if plaintext != "" and plaintext[4::] != ".txt":
-	#	mode = "string"
-	#elif plaintext != "" and plaintext[4::] == ".txt":
-	#	mode = "file"
-	mode = "string"
-	if mode == "string":
-		try:
-			ciphertext = hashlib.md5(bytes(plaintext,'utf-8')).hexdigest()
-			print("[{3}+{1}]--[{2}MD5{1}] Ciphertext >> {3}{4}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, ciphertext))
-		except:
-			print("{1}[!] ERROR!".format(cl_reset, cl_fg_red))
-	print()
-	jeda()
-	main_menu()
+list_mode = '''{0}  {1}[{3}01{1}] {2}Encode
+  {1}[{3}02{1}] {2}Decode{0}'''.format(cl_reset, clfg_lg, clfg_y, clfg_w)
 
-### START Hex Tool
-def tool_hex():
-	mode = ""
-	encodeco = ""
-	# Choose Encode/Decode
-	choose_encodeco = input(r"[{2}?{1}]--[{2}Hex{1}] Encode[1] / Decode[2] >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-	if choose_encodeco in ["1","01"]:
-		encodeco = "encode"
-	elif choose_encodeco in ["2","02"]:
-		encodeco = "decode"
-	elif choose_encodeco in ["<","back","BACK","Back"]:
-		main_menu()
-	elif choose_encodeco in ["exit","EXIT","Exit"]:
-		sys.exit(0)
-	else:
-		tool_hex()
-
-	print()
-	# Mode Encode
-	if encodeco == "encode":
-		plaintext = input(r"[{2}?{1}]--[{2}Hex{1}] Plaintext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-		if plaintext == "" or plaintext == None:
-			tool_hex()
-		#if plaintext != "" and plaintext[4::] != ".txt":
-		#	mode = "string"
-		#elif plaintext != "" and plaintext[4::] == ".txt":
-		#	mode = "file"
-		mode = "string"
-		if mode == "string":
-			try:
-				ciphertext1 = plaintext.encode('utf-8').hex()
-				ciphertext2 = "0x" + ciphertext1
-				print("[{3}+{1}]--[{2}Hex{1}] Ciphertext >> {3}{4}{1} or {3}{5}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, ciphertext1, ciphertext2))
-			except:
-				print("{1}[!] ERROR!".format(cl_reset, cl_fg_red))
-		print()
-		jeda()
-		main_menu()
-	# Mode Decode
-	elif encodeco == "decode":
-		ciphertext = input(r"[{2}?{1}]--[{2}Hex{1}] Ciphertext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-		if ciphertext == "" or ciphertext == None:
-			tool_hex()
-		#if ciphertext != "" and ciphertext[4::] != ".txt":
-		#	mode = "string"
-		#elif ciphertext != "" and ciphertext[4::] == ".txt":
-		#	mode = "file"
-		mode = "string"
-		if mode == "string":
-			try:
-				if ciphertext[:2] == "0x":
-					ciphertext = ciphertext[2:]
-				plaintext = bytes.fromhex(ciphertext).decode('utf-8')
-				print("[{3}+{1}]--[{2}Hex{1}] Plaintext >> {3}{4}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, plaintext))
-			except:
-				print("{1}[!] ERROR!".format(cl_reset, cl_fg_red))
-		print()
-		jeda()
-		main_menu()
-
-### START Base64 Tool
-def tool_base64():
-	mode = ""
-	encodeco = ""
-	# Choose Encode/Decode
-	choose_encodeco = input(r"[{2}?{1}]--[{2}Base64{1}] Encode[1] / Decode[2] >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-	if choose_encodeco in ["1","01"]:
-		encodeco = "encode"
-	elif choose_encodeco in ["2","02"]:
-		encodeco = "decode"
-	elif choose_encodeco in ["<","back","BACK","Back"]:
-		main_menu()
-	elif choose_encodeco in ["exit","EXIT","Exit"]:
-		sys.exit(0)
-	else:
-		tool_base64()
-	
-	print()
-	# Mode Encode
-	if encodeco == "encode":
-		plaintext = input(r"[{2}?{1}]--[{2}Base64{1}] Plaintext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-		if plaintext == "" or plaintext == None:
-			tool_base64()
-		#if plaintext != "" and plaintext[4::] != ".txt":
-		#	mode = "string"
-		#elif plaintext != "" and plaintext[4::] == ".txt":
-		#	mode = "file"
-		mode = "string"
-		if mode == "string":
-			try:
-				ciphertext = base64.b64encode(bytes(plaintext,'utf-8'))
-				ciphertext = str(ciphertext)
-				stage1 = ciphertext[2::]
-				stage2 = stage1.strip("'")
-				print("[{3}+{1}]--[{2}Base64{1}] Ciphertext >> {3}{4}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, stage2))
-			except:
-				print("{1}[!] ERROR!".format(cl_reset, cl_fg_red))
-		print()
-		jeda()
-		main_menu()
-	# Mode Decode
-	elif encodeco == "decode":
-		ciphertext = input(r"[{2}?{1}]--[{2}Base64{1}] Ciphertext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-		if ciphertext == "" or ciphertext == None:
-			tool_base64()
-		#if ciphertext != "" and ciphertext[4::] != ".txt":
-		#	mode = "string"
-		#elif ciphertext != "" and ciphertext[4::] == ".txt":
-		#	mode = "file"
-		mode = "string"
-		if mode == "string":
-			try:
-				plaintext = base64.b64decode(ciphertext)
-				plaintext = str(plaintext)
-				stage1 = plaintext[2::]
-				stage2 = stage1.strip("'")
-				print("[{3}+{1}]--[{2}Base64{1}] Plaintext >> {3}{4}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, stage2))
-			except:
-				print("{1}[!] ERROR!".format(cl_reset, cl_fg_red))
-		print()
-		jeda()
-		main_menu()
-
-### START Base32 Tool
-def tool_base32():
-	mode = ""
-	encodeco = ""
-	# Choose Encode/Decode
-	choose_encodeco = input(r"[{2}?{1}]--[{2}Base32{1}] Encode[1] / Decode[2] >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-	if choose_encodeco in ["1","01"]:
-		encodeco = "encode"
-	elif choose_encodeco in ["2","02"]:
-		encodeco = "decode"
-	elif choose_encodeco in ["<","back","BACK","Back"]:
-		main_menu()
-	elif choose_encodeco in ["exit","EXIT","Exit"]:
-		sys.exit(0)
-	else:
-		tool_base32()
-	
-	print()
-	# Mode Encode
-	if encodeco == "encode":
-		plaintext = input(r"[{2}?{1}]--[{2}Base32{1}] Plaintext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-		if plaintext == "" or plaintext == None:
-			tool_base32()
-		#if plaintext != "" and plaintext[4::] != ".txt":
-		#	mode = "string"
-		#elif plaintext != "" and plaintext[4::] == ".txt":
-		#	mode = "file"
-		mode = "string"
-		if mode == "string":
-			try:
-				ciphertext = base64.b32encode(bytes(plaintext,'utf-8'))
-				ciphertext = str(ciphertext)
-				stage1 = ciphertext[2::]
-				stage2 = stage1.strip("'")
-				print("[{3}+{1}]--[{2}Base32{1}] Ciphertext >> {3}{4}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, stage2))
-			except:
-				print("{1}[!] ERROR!".format(cl_reset, cl_fg_red))
-		print()
-		jeda()
-		main_menu()
-	# Mode Decode
-	elif encodeco == "decode":
-		ciphertext = input(r"[{2}?{1}]--[{2}Base32{1}] Ciphertext >> ".format(cl_reset, cl_fg_white, cl_fg_red))
-		if ciphertext == "" or ciphertext == None:
-			tool_base32()
-		#if ciphertext != "" and ciphertext[4::] != ".txt":
-		#	mode = "string"
-		#elif ciphertext != "" and ciphertext[4::] == ".txt":
-		#	mode = "file"
-		mode = "string"
-		if mode == "string":
-			try:
-				plaintext = base64.b32decode(ciphertext)
-				plaintext = str(plaintext)
-				stage1 = plaintext[2::]
-				stage2 = stage1.strip("'")
-				print("[{3}+{1}]--[{2}Base32{1}] Plaintext >> {3}{4}{1}".format(cl_reset, cl_fg_white, cl_fg_red, cl_fg_lgreen, stage2))
-			except:
-				print("{1}[!] ERROR!".format(cl_reset, cl_fg_red))
-		print()
-		jeda()
-		main_menu()
-
-### START Clear Screen SECTION
-def clr_scr():
-	# This function used to clear the screen
-	if sys.platform in ['win32','cygwin']:
-		os_name = "Windows"
-		os.system('cls')
-	elif sys.platform in ['linux','linux2']:
-		os_name = "Linux"
-		os.system('clear')
-	elif sys.platform == 'darwin':
-		os_name = "OS X"
-		os.system('clear')
-
+list_alg = '''{0}
+  {1}[{3}01{1}] {2}Base32       {1}[{3}07{1}] {2}SHA-1       {1}[{3}12{1}] {2}SHA3-224
+  {1}[{3}02{1}] {2}Base64       {1}[{3}08{1}] {2}SHA-224     {1}[{3}13{1}] {2}SHA3-256
+  {1}[{3}03{1}] {2}Binary       {1}[{3}09{1}] {2}SHA-256     {1}[{3}14{1}] {2}SHA3-384
+  {1}[{3}04{1}] {2}Hex          {1}[{3}10{1}] {2}SHA-384     {1}[{3}15{1}] {2}SHA3-512
+  {1}[{3}05{1}] {2}Ascii-Text   {1}[{3}11{1}] {2}SHA-512     {1}[{3}16{1}] {2}MD5
+  {1}[{3}06{1}] {2}URL Encode
+{0}'''.format(cl_reset, clfg_lg, clfg_y, clfg_w)
 def jeda():
-	input("{1}[{2}:{1}] {2}Press 'ENTER' to continue ...".format(cl_reset, cl_fg_white, cl_fg_yellow))
-	print()
+    input("\n{0}{1}[PRESS ENTER TO CONTINUE ...]{0}".format(cl_reset, clfg_r))
 
-### START Banner SECTION
-def banner():
-	print('''{1}
-###---###---###------>>>{3}  SOBBU  {0}{1}<<<------###---###---###
-#                                                       #
-|  Cryptography tool for various encoding and decoding  |
-|  algorithms. Made with {2}<3{1} by {2}Muhammad Rizky{1} ({2}Dr-3AM{1})  |
-#                                                       #
-###---###---###------>>> {2}ver 1.0{1} <<<------###---###---###'''.format(cl_reset, cl_fg_white, cl_fg_red, cl_bg_red, cl_fg_yellow))
+### CLEAR SCREEN
+def clr_scr():
+    if opsys == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear")
 
+### ALGORITMA
+# BASE32
+def alg_base32(the_string,mode_alg):
+    text = the_string.strip()
+    if mode_alg == "Encode":
+        try:
+            ciphertext = str(base64.b32encode(bytes(text, 'utf-8')))
+            ciphertext = ciphertext[2::].strip("'")
+            print(f"{clfg_w}[Base32-{mode_alg}] Result : {clfg_lg}{ciphertext}")
+        except binascii.Error:
+            pass
+    else:
+        try:
+            plaintext = str(base64.b32decode(text))
+            plaintext = plaintext[2::].strip("'")
+            print(f"{clfg_w}[Base32-{mode_alg}] Result : {clfg_lg}{plaintext}")
+        except binascii.Error:
+            pass
+    jeda()
+# BASE64
+def alg_base64(the_string,mode_alg):
+    text = the_string.strip()
+    if mode_alg == "Encode":
+        try:
+            ciphertext = str(base64.b64encode(bytes(text, 'utf-8')))
+            ciphertext = ciphertext[2::].strip("'")
+            print(f"{clfg_w}[Base64-{mode_alg}] Result : {clfg_lg}{ciphertext}")
+        except binascii.Error:
+            pass
+    else:
+        try:
+            plaintext = str(base64.b64decode(text))
+            plaintext = plaintext[2::].strip("'")
+            print(f"{clfg_w}[Base64-{mode_alg}] Result : {clfg_lg}{plaintext}")
+        except binascii.Error:
+            pass
+    jeda()
+# BINARY
+def alg_binary(the_string,mode_alg):
+    text = the_string.strip()
+    if mode_alg == "Encode":
+        try:
+            string_format = int(the_string)
+            mode_format = "int"
+        except ValueError:
+            string_format = the_string.strip()
+            mode_format = "text"
+        if mode_format == "int":
+            cipher_bin = str(bin(string_format))[2:]
+            print(f"{clfg_w}[Binary-{mode_alg}] Result : {clfg_lg}{cipher_bin}")
+        else:
+            cipher_builder = ""
+            for huruf in string_format:
+                cipher_bin = str(bin(ord(huruf)))[2:]
+                cipher_builder += f"{cipher_bin} "
+            print(f"{clfg_w}[Binary-{mode_alg}] Result : {clfg_lg}{cipher_builder}")
+    else:
+        text = the_string.strip()
+        split_text = text.split()
+        plaintext_builder = ""
+        for section in split_text:
+            ordo = int(bytes(section, 'utf-8'),2)
+            huruf = chr(ordo)
+            plaintext_builder += f"{huruf}"
+        print(f"{clfg_w}[Binary-{mode_alg}] Result : {clfg_lg}{plaintext_builder}")
+    jeda()
+# HEXADECIMAL
+def alg_hex(the_string,mode_alg):
+    text = the_string.strip()
+    if mode_alg == "Encode":
+        try:
+            string_format = int(the_string)
+            mode_format = "int"
+        except ValueError:
+            string_format = the_string.strip()
+            mode_format = "text"
+        if mode_format == "int":
+            cipher_bin = str(hex(string_format))[2:]
+            print(f"{clfg_w}[Hexadecimal-{mode_alg}] Result : {clfg_lg}{cipher_bin}")
+        else:
+            cipher_builder = ""
+            for huruf in string_format:
+                cipher_hex = str(hex(ord(huruf)))[2:]
+                cipher_builder += f"{cipher_hex} "
+            print(f"{clfg_w}[Hexadecimal-{mode_alg}] Result : {clfg_lg}{cipher_builder}")
+    else:
+        text = the_string.strip()
+        split_text = text.split()
+        plaintext_builder = ""
+        for section in split_text:
+            ordo = int(bytes(section, 'utf-8'),16)
+            huruf = chr(ordo)
+            plaintext_builder += f"{huruf}"
+        print(f"{clfg_w}[Hexadecimal-{mode_alg}] Result : {clfg_lg}{plaintext_builder}")
+    jeda()
+# ASCII-TEXT
+def alg_ascii(the_string,mode_alg):
+    text = the_string.strip()
+    text_split = text.split()
+    if mode_alg == "Encode":
+        cipher_builder = ""
+        for huruf in text:
+            cipher_builder += str(ord(huruf)) + " "
+        print(f"{clfg_w}[Ascii/Text-{mode_alg}] Result : {clfg_lg}{cipher_builder}")
+    else:
+        plaintext_builder = ""
+        for ordo in text_split:
+            plaintext_builder += str(chr(int(ordo)))
+        print(f"{clfg_w}[Ascii/Text-{mode_alg}] Result : {clfg_lg}{plaintext_builder}")
+    jeda()
+# URL ENCODE
+def alg_urlencode(the_url,mode_alg):
+    url = the_url.strip()
+    if mode_alg == "Encode":
+        encoded_url = urllib.parse.quote(url, safe='')
+        print(f"{clfg_w}[URL Encode-{mode_alg}] Result : {clfg_lg}{encoded_url}")
+    else:
+        decoded_url = urllib.parse.unquote(url)
+        print(f"{clfg_w}[URL Decode-{mode_alg}] Result : {clfg_lg}{decoded_url}")
+    jeda()
+# SHA FAMILY
+def alg_sha(the_string,mode_alg,sha_types):
+    text = the_string.strip()
+    if sha_types == "sha1":
+        hash_value = hashlib.sha1(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA-1-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    elif sha_types == "sha224":
+        hash_value = hashlib.sha224(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA-224-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    elif sha_types == "sha256":
+        hash_value = hashlib.sha256(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA-256-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    elif sha_types == "sha384":
+        hash_value = hashlib.sha384(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA-384-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    elif sha_types == "sha512":
+        hash_value = hashlib.sha512(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA-512-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    jeda()
+# SHA3 FAMILY
+def alg_sha3(the_string,mode_alg,sha_types):
+    text = the_string.strip()
+    if sha_types == "sha3_224":
+        hash_value = hashlib.sha3_224(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA3-224-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    elif sha_types == "sha3_256":
+        hash_value = hashlib.sha3_256(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA3-256-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    elif sha_types == "sha3_384":
+        hash_value = hashlib.sha3_384(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA3-384-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    elif sha_types == "sha3_512":
+        hash_value = hashlib.sha3_512(bytes(text,'utf-8')).hexdigest()
+        print(f"{clfg_w}[SHA3-512-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    jeda()
+# MD5
+def alg_md5(the_string,mode_alg):
+    text = the_string.strip()
+    hash_value = hashlib.md5(bytes(text,'utf-8')).hexdigest()
+    print(f"{clfg_w}[MD5-{mode_alg}] Result : {clfg_lg}{hash_value}")
+    jeda()
 
+### PILIH ALGORITMA
+def choose_tool(mode_alg):
+    opsi_alg = input(f"{clfg_w}[{mode_alg}] Option > {clfg_y}")
+    # BASE32
+    if opsi_alg in ["01", "1"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[Base32-{mode_alg}] Text > {clfg_y}")
+        else:
+            the_string = input(f"{clfg_w}[Base32-{mode_alg}] Ciphertext > {clfg_y}")
+        if the_string != "" or the_string != None:
+            alg_base32(the_string,mode_alg)
+            main()
+    # BASE64
+    elif opsi_alg in ["02", "2"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[Base64-{mode_alg}] Text > {clfg_y}")
+        else:
+            the_string = input(f"{clfg_w}[Base64-{mode_alg}] Ciphertext > {clfg_y}")
+        if the_string != "" or the_string != None:
+            alg_base64(the_string,mode_alg)
+            main()
+    # BINARY
+    elif opsi_alg in ["03", "3"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[Binary-{mode_alg}] Text > {clfg_y}")
+        else:
+            the_string = input(f"{clfg_w}[Binary-{mode_alg}] Ciphertext > {clfg_y}")
+        if the_string != "" or the_string != None:
+            alg_binary(the_string,mode_alg)
+            main()
+    # HEXADECIMAL
+    elif opsi_alg in ["04", "4"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[Hexadecimal-{mode_alg}] Text > {clfg_y}")
+        else:
+            the_string = input(f"{clfg_w}[Hexadecimal-{mode_alg}] Ciphertext > {clfg_y}")
+        if the_string != "" or the_string != None:
+            alg_hex(the_string,mode_alg)
+            main()
+    # ASCII-TEXT
+    elif opsi_alg in ["05", "5"]:
+        if mode_alg == "Encode":
+            the_url = input(f"{clfg_w}[Ascii/Text-{mode_alg}] Text > {clfg_y}")
+        else:
+            the_url = input(f"{clfg_w}[Ascii/Text-{mode_alg}] Ciphertext > {clfg_y}")
+        if the_url != "" or the_url != None:
+            alg_ascii(the_url,mode_alg)
+            main()
+    # URL ENCODE
+    elif opsi_alg in ["06", "6"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[URL Encode-{mode_alg}] URL > {clfg_y}")
+        else:
+            the_string = input(f"{clfg_w}[URL Encode-{mode_alg}] Encoded URL > {clfg_y}")
+        if the_string != "" or the_string != None:
+            alg_urlencode(the_string,mode_alg)
+            main()
+    # SHA FAMILY
+        # SHA-1
+    elif opsi_alg in ["07", "7"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA-1-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha(the_string,mode_alg,"sha1")
+                main()
+        else:
+            print("{1}[-] SHA-1 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+        # SHA-224
+    elif opsi_alg in ["08", "8"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA-224-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha(the_string,mode_alg,"sha224")
+                main()
+        else:
+            print("{1}[-] SHA-224 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+        # SHA-256
+    elif opsi_alg in ["09", "9"]:
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA-256-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha(the_string,mode_alg,"sha256")
+                main()
+        else:
+            print("{1}[-] SHA-256 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+    elif opsi_alg == "10":
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA-384-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha(the_string,mode_alg,"sha384")
+                main()
+        else:
+            print("{1}[-] SHA-384 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+    elif opsi_alg == "11":
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA-512-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha(the_string,mode_alg,"sha512")
+                main()
+        else:
+            print("{1}[-] SHA-512 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+    # SHA3 FAMILY
+        # SHA3-224
+    elif opsi_alg == "12":
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA3-224-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha3(the_string,mode_alg,"sha3_224")
+                main()
+        else:
+            print("{1}[-] SH3-224 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+        # SHA3-224
+    elif opsi_alg == "13":
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA3-256-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha3(the_string,mode_alg,"sha3_256")
+                main()
+        else:
+            print("{1}[-] SH3-256 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+        # SHA3-384
+    elif opsi_alg == "14":
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA3-384-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha3(the_string,mode_alg,"sha3_384")
+                main()
+        else:
+            print("{1}[-] SH3-384 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+        # SHA3-512
+    elif opsi_alg == "15":
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[SHA3-512-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_sha3(the_string,mode_alg,"sha3_512")
+                main()
+        else:
+            print("{1}[-] SH3-512 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+    # MD5
+    elif opsi_alg == "16":
+        if mode_alg == "Encode":
+            the_string = input(f"{clfg_w}[MD5-{mode_alg}] Text > {clfg_y}")
+            if the_string != "" or the_string != None:
+                alg_md5(the_string,mode_alg)
+                main()
+        else:
+            print("{1}[-] MD5 don't have Decode mode ..{0}\n".format(cl_reset, clfg_r))
+            choose_tool(mode_alg)
+    
+    # LAIN-LAIN
+    elif opsi_alg in ["back", "BACK", "Back"]:
+        mode_alg = ""
+        main()
+    elif opsi_alg in ["exit", "Exit", "EXIT"]:
+        print(cl_reset)
+        exit()
+    else:
+        choose_tool(mode_alg)
 
-### START Asking Control SECTION
-def opt_control():
-	opsi_menu = input(r"[{2}?{1}] Select option >> ".format(cl_reset, cl_fg_white, cl_fg_red))
+### PILIH MENU
+def choose_mode():
+    opsi_menu = input("{0}{1}[?] Option > {2}".format(cl_reset, clfg_w, clfg_y))
+    if opsi_menu in ["01", "1"]:
+        mode_alg = "Encode"
+        clr_scr()
+        print(banner)
+        print(list_alg)
+        choose_tool(mode_alg)
+    elif opsi_menu in ["02", "2"]:
+        mode_alg = "Decode"
+        clr_scr()
+        print(banner)
+        print(list_alg)
+        choose_tool(mode_alg)
+    elif opsi_menu in ["exit", "Exit", "EXIT"]:
+        print(cl_reset)
+        exit()
+    else:
+        choose_mode()
 
-	if opsi_menu == "" or opsi_menu == None:
-		opt_control()
-	elif opsi_menu in ["<","back","BACK","Back"]:
-		main_menu()
-	elif opsi_menu in ["exit","EXIT","Exit"]:
-		sys.exit(0)
-	elif opsi_menu in ["?","help","HELP","Help"]:
-		print() # Some Shit Goes Here
-	elif opsi_menu in ["1","01"]:
-		print()
-		tool_base32()
-	elif opsi_menu in ["2", "02"]:
-		print()
-		tool_base64()
-	elif opsi_menu in ["3", "03"]:
-		print()
-		tool_hex()
-	elif opsi_menu in ["4", "04"]:
-		print()
-		tool_md5()
-	elif opsi_menu in ["5", "05"]:
-		print()
-		tool_sha()
-	else:
-		print("[!] Error: {0} is not an option!")
-		print()
-		opt_control()
+### MENU UTAMA
+def main():
+    if opsys == "Windows":
+        os.system("@echo off")
+        os.system("mode 75,25")
+        os.system("title Sobbu (v1.1) by Muhammad Rizky (Dr-3AM)")
+    clr_scr()
+    print(banner)
+    print(list_mode)
+    print()
+    choose_mode()
 
-### START Main Execution of the program SECTION
-def main_menu():
-	clr_scr()
-	banner()
-	print('''
-[{2}01{1}] Base32 Encode-Decode
-[{2}02{1}] Base64 Encode-Decode
-[{2}03{1}] Hex Encode-Decode
-[{2}04{1}] MD5 Encode
-[{2}05{1}] SHA Family Encode
-[{2}06{1}] SHA3 (KECCAK) Family Encode
-[{2}07{1}] SHAKE Family Encode
-[{2}08{1}] BLAKE Family Encode
-[{2}09{1}] Shift Cipher
-[{2}10{1}] Substitution Cipher
-[{2}11{1}] Vigenere Cipher
-'''.format(cl_reset, cl_fg_white, cl_fg_red))
-	opt_control()
-
-if __name__ == '__main__':
-	main_menu()
+main()
