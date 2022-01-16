@@ -31,4 +31,4 @@ Sobbu is a simple and offline cryptography tool. It comes with various type of a
 - URL Encode
 - SHA Encryption (1, 224, 256, 384, 512)
 - SHA3 Encryption (224, 256, 384, 512)
-- MD5
+- MD5 Encryption
