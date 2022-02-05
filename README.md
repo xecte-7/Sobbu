@@ -1,7 +1,6 @@
-[title]SOBBU
-**Sobbu is cryptography tool with various encoding-decoding and encryption algorithms Coded by Muhammad Rizky [Dr-3AM]**
-
-*This tool writed on Python3
+# SOBBU
+*Cryptography tool with various encoding-decoding and encryption algorithms coded by Muhammad Rizky [Dr-3AM]**
+*This tool writed on Python3*
 
 ### Download or clone the repository :
 *(If you don't have git installed, then you can clone this repo via "Code" button above and download it as a compressed archive file)*
