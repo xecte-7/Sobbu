@@ -1,3 +1,2 @@
 colored
-urllib
 hashlib
