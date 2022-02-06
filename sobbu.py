@@ -1,8 +1,6 @@
 #!/usr/env python3
 # -*- encode: utf-8 -*-
 
-''' SOBBU version 1.1 coded by Muhammad Rizky (Dr-3AM) '''
-
 ### IMPORTING MODULES
 import binascii
 #from multiprocessing.sharedctypes import Value
@@ -430,7 +428,7 @@ def main():
     if opsys == "Windows":
         os.system("@echo off")
         os.system("mode 75,25")
-        os.system("title Sobbu (v1.1) by Muhammad Rizky (Dr-3AM)")
+        os.system("title Sobbu (v1.2) by Muhammad Rizky [Dr-3AM]")
     clr_scr()
     print(banner)
     print(list_mode)
