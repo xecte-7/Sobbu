@@ -1,6 +1,7 @@
 # SOBBU
-**Cryptography tool for encode-decode and encrypt-decrypt**
-*This tool writed on Python3*
+**Cryptography Tool** - *for encode-decode and encrypt-decrypt*
+
+*Coded by Muhammad Rizky <XECTE-7>*
 
 ### Installation
 *(Cloning this repository)*
