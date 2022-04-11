@@ -4,3 +4,7 @@
 +) Version 1.2
    - Modify tool banner
    - Seperate algorithms list for Encoding-Encrypt and Decoding mode
+
++) Version 1.3
+   - Renew source code for easier reading
+   - Hash Decryption via Rainbow Tables is now available for MD5, SHA-1, SHA-256, SHA-384, and SHA-512!
