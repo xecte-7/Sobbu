@@ -26,11 +26,12 @@ YouTube : *Portal-IT ID*
 
 *(Installing dependencies/requirements for CLI)*
 > pip install -r requirements.txt
+or
+> python3 -m pip install -r requirements.txt
 
 ### USAGE
 *(Running the program)*
-> python sobbu.py
-> python sobbu-gui.py
+> python sobbu-cli.py
 
 ### CHANGELOG
 *> version 1.3*
