@@ -20,6 +20,7 @@ YouTube : *Portal-IT ID*<br>
 ## RELEASES
 Check Sobbu releases here :<br>
 https://github.com/xecte-7/Sobbu/releases/tag/Sobbu
+<br>
 *Note: GUI version is currently unavailable for other OS than Windows*
 
 ## CHANGELOG
