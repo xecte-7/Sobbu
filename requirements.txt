@@ -1,2 +1,2 @@
-requests==2.26.0
-colored==1.4.3
+requests
+colored
