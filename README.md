@@ -6,7 +6,7 @@
 *Sobbu is a cryptography tool for various encoding-decoding algorithm weaponized with Hashh encrypting and Hash cracking*
 
 **[About Author]**<br>
-*Coded by Muhammad Rizky* a.k.a *<XECTE-7>*
+*Coded by Muhammad Rizky* a.k.a *XECTE-7*<br>
 *I'm computer engineering college student at University of Borneo Tarakan that recently diagnosed with curiosity for cyber security and programming.*
 
 Instagram : *@muhammad.rizky98 / @portal_it.id / @xecte_7*<br>
@@ -14,7 +14,7 @@ Github : *github.com/xecte-7*<br>
 HackerOne : *hackerone.com/xecte-7*<br>
 YouTube : *Portal-IT ID*
 
-*#XECTE-7 #Portal-IT-ID #PentaByte-ID*
+*#XECTE-7 #Portal-IT-ID #PentaByte-ID*<br>
 *#DariTeknikUntukDunia #UniversitasBorneoTarakan*
 
 ### INSTALL
