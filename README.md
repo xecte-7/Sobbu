@@ -12,16 +12,14 @@
 Instagram : *@muhammad.rizky98 / @portal_it.id / @xecte_7*<br>
 Github : *github.com/xecte-7*<br>
 HackerOne : *hackerone.com/xecte-7*<br>
-YouTube : *Portal-IT ID*
+YouTube : *Portal-IT ID*<br>
+*#XECTE-7 #Portal-IT-ID #PentaByte-ID #DariTeknikUntukDunia #UniversitasBorneoTarakan*
 
-*#XECTE-7 #Portal-IT-ID #PentaByte-ID*<br>
-*#DariTeknikUntukDunia #UniversitasBorneoTarakan*
-
-### RELEASES
-Check Sobbu releases here :
+## RELEASES
+Check Sobbu releases here :<br>
 https://github.com/xecte-7/Sobbu/releases/tag/Sobbu
 
-**CHANGELOG**<br>
+## CHANGELOG
 *> version 1.3*
 - adding encode-decode algorithm: Octal, HTML, and Rot13
 - fixing RainbowTable bot
