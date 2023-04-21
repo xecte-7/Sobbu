@@ -17,23 +17,10 @@ YouTube : *Portal-IT ID*
 *#XECTE-7 #Portal-IT-ID #PentaByte-ID*<br>
 *#DariTeknikUntukDunia #UniversitasBorneoTarakan*
 
-### INSTALL
-*(Cloning this repository)*
-> git clone https://github.com/xecte-7/Sobbu
+**Releases**<br>
+Check Sobbu releases here : https://github.com/xecte-7/Sobbu/releases/tag/Sobbu
 
-*(Entering directory)*
-> cd Sobbu
-
-*(Installing dependencies/requirements for CLI)*
-> pip install -r requirements.txt
-or
-> python3 -m pip install -r requirements.txt
-
-### USAGE
-*(Running the program)*
-> python sobbu-cli.py
-
-### CHANGELOG
+**CHANGELOG**<br>
 *> version 1.3*
 - adding encode-decode algorithm: Octal, HTML, and Rot13
 - fixing RainbowTable bot
