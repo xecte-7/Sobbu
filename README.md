@@ -2,6 +2,7 @@
 
 <a href="https://github.com/dr-3am/Sobbu/tree/version-1.1"><img align="center" src="https://raw.githubusercontent.com/xecte-7/Sobbu/main/assets/banner.jpg" alt="Sobbu"></a>
 
+## ABOUT
 **[About Sobbu]**<br>
 *Sobbu is a cryptography tool for various encoding-decoding algorithm weaponized with Hashh encrypting and Hash cracking*
 
@@ -9,6 +10,7 @@
 *Coded by Muhammad Rizky* a.k.a *XECTE-7*<br>
 *I'm computer engineering college student at University of Borneo Tarakan that recently diagnosed with curiosity for cyber security and programming.*
 
+**[Contact]**
 Instagram : *@muhammad.rizky98 / @portal_it.id / @xecte_7*<br>
 Github : *github.com/xecte-7*<br>
 HackerOne : *hackerone.com/xecte-7*<br>
