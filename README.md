@@ -17,8 +17,9 @@ YouTube : *Portal-IT ID*
 *#XECTE-7 #Portal-IT-ID #PentaByte-ID*<br>
 *#DariTeknikUntukDunia #UniversitasBorneoTarakan*
 
-**Releases**<br>
-Check Sobbu releases here : https://github.com/xecte-7/Sobbu/releases/tag/Sobbu
+### RELEASES
+Check Sobbu releases here :
+https://github.com/xecte-7/Sobbu/releases/tag/Sobbu
 
 **CHANGELOG**<br>
 *> version 1.3*
