@@ -10,7 +10,7 @@
 *Coded by Muhammad Rizky* a.k.a *XECTE-7*<br>
 *I'm computer engineering college student at University of Borneo Tarakan that recently diagnosed with curiosity for cyber security and programming.*
 
-**[Contact]**
+**[Contact]**<br>
 Instagram : *@muhammad.rizky98 / @portal_it.id / @xecte_7*<br>
 Github : *github.com/xecte-7*<br>
 HackerOne : *hackerone.com/xecte-7*<br>
