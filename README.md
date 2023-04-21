@@ -27,9 +27,6 @@ YouTube : *Portal-IT ID*
 *(Installing dependencies/requirements for CLI)*
 > pip install -r requirements.txt
 
-*(Installing dependencies/requirements for GUI)*
-> pip install -r requirements-gui.txt
-
 ### USAGE
 *(Running the program)*
 > python sobbu.py
