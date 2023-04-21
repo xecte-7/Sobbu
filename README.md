@@ -1,6 +1,6 @@
 # SOBBU
 
-<a href="https://github.com/dr-3am/Sobbu/tree/version-1.1"><img align="center" height="20%" src="https://raw.githubusercontent.com/xecte-7/Sobbu/main/assets/banner.jpg" alt="Sobbu"></a>
+<a href="https://github.com/dr-3am/Sobbu/tree/version-1.1"><img align="center" src="https://raw.githubusercontent.com/xecte-7/Sobbu/main/assets/banner.jpg" alt="Sobbu"></a>
 
 **[About Sobbu]**<br>
 *Sobbu is a cryptography tool for various encoding-decoding algorithm weaponized with Hashh encrypting and Hash cracking*
