@@ -4,7 +4,7 @@
 
 ## ABOUT
 **[About Sobbu]**<br>
-*Sobbu is a cryptography tool for various encoding-decoding algorithm weaponized with Hashh encrypting and Hash cracking*
+*Sobbu is a cryptography tool for various encoding-decoding algorithm weaponized with Hash encrypting and Hash cracking*
 
 **[About Author]**<br>
 *Coded by Muhammad Rizky* a.k.a *XECTE-7*<br>
