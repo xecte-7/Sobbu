@@ -28,6 +28,7 @@ https://github.com/xecte-7/Sobbu/releases/
 - available RainbowTable bot : 5
 - interface change
 - fixing HTML encode-decode algorithm
+
 *> version 1.3*
 - adding encode-decode algorithm: Octal, HTML, and Rot13
 - fixing RainbowTable bot
