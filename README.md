@@ -19,11 +19,15 @@ YouTube : *Portal-IT ID*<br>
 
 ## RELEASES
 Check Sobbu releases here :<br>
-https://github.com/xecte-7/Sobbu/releases/tag/Sobbu
+https://github.com/xecte-7/Sobbu/releases/
 <br>
 *Note: GUI version is currently unavailable for other OS than Windows*
 
 ## CHANGELOG
+*> version 1.4*
+- available RainbowTable bot : 5
+- interface change
+- fixing HTML encode-decode algorithm
 *> version 1.3*
 - adding encode-decode algorithm: Octal, HTML, and Rot13
 - fixing RainbowTable bot
