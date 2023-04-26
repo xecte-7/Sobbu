@@ -1,6 +1,6 @@
 # SOBBU
 
-<a href="https://github.com/dr-3am/Sobbu/tree/version-1.1"><img align="center" src="https://raw.githubusercontent.com/xecte-7/Sobbu/main/assets/banner.jpg" alt="Sobbu"></a>
+<a href="https://github.com/xecte-7/Sobbu/releases"><img align="center" src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/banner-1.4.jpg" alt="Sobbu"></a>
 
 ## ABOUT
 **[About Sobbu]**<br>
