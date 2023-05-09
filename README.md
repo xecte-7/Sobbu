@@ -15,7 +15,7 @@ Instagram : *@muhammad.rizky98 / @portal_it.id / @xecte_7*<br>
 Github : *github.com/xecte-7*<br>
 HackerOne : *hackerone.com/xecte-7*<br>
 YouTube : *Portal-IT ID*<br>
-*#XECTE-7 #Portal-IT-ID #PentaByte-ID #DariTeknikUntukDunia #UniversitasBorneoTarakan*
+*#XECTE-7 #Portal_IT_ID #DariTeknikUntukDunia #HMTK_FT_UBT*
 
 ## RELEASES
 Check Sobbu releases here :<br>
