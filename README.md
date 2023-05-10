@@ -1,11 +1,15 @@
+<a href="https://github.com/xecte-7/Sobbu/releases"><img align="center" src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/banner-1.4.jpg" alt="Sobbu"></a>
+
 # SOBBU
-
-<a href="https://github.com/xecte-7/Sobbu/releases"><img align="center" src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/version-1.4/banner-1.4.jpg" alt="Sobbu"></a>
-
-## ABOUT
-**[About Sobbu]**<br>
 *Sobbu is a cryptography tool for various encoding-decoding algorithm weaponized with Hash encrypting and Hash cracking*
 
+## RELEASES
+Check Sobbu releases here :<br>
+https://github.com/xecte-7/Sobbu/releases/
+<br>
+*Note: GUI version is currently unavailable for other OS than Windows*
+
+## ABOUT AUTHOR
 **[About Author]**<br>
 *Coded by Muhammad Rizky* a.k.a *XECTE-7*<br>
 *I'm computer engineering college student at University of Borneo Tarakan that recently diagnosed with curiosity for cyber security and programming.*
@@ -15,20 +19,13 @@ Instagram : *@muhammad.rizky98 / @portal_it.id / @xecte_7*<br>
 Github : *github.com/xecte-7*<br>
 HackerOne : *hackerone.com/xecte-7*<br>
 YouTube : *Portal-IT ID*<br>
-*#XECTE-7 #Portal_IT_ID #DariTeknikUntukDunia #HMTK_FT_UBT*
-
-## RELEASES
-Check Sobbu releases here :<br>
-https://github.com/xecte-7/Sobbu/releases/
-<br>
-*Note: GUI version is currently unavailable for other OS than Windows*
+*#XECTE-7 #Portal-IT-ID #PentaByte-ID #DariTeknikUntukDunia #UniversitasBorneoTarakan*
 
 ## CHANGELOG
 *> version 1.4*
 - available RainbowTable bot : 5
 - interface change
 - fixing HTML encode-decode algorithm
-
 *> version 1.3*
 - adding encode-decode algorithm: Octal, HTML, and Rot13
 - fixing RainbowTable bot
