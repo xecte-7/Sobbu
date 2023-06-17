@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-  <a href="https://github.com/xecte-7/Sobbu/releases"><img src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/version-1.4/logo-sobbu.png" alt="Sobbu" width="25%">
+  <a href="https://github.com/xecte-7/Sobbu/releases"><img src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/version-1.4/logo-sobbu.png" alt="Sobbu" width="33%">
   </a>
 </p>
 
