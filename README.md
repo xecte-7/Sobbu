@@ -1,4 +1,4 @@
-<a href="https://github.com/xecte-7/Sobbu/releases"><img align="center" src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/version-1.4/logo-sobbu.png" alt="Sobbu"></a>
+<center><a href="https://github.com/xecte-7/Sobbu/releases"><img align="center" src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/version-1.4/logo-sobbu.png" alt="Sobbu" height="500px"></a></center>
 
 # SOBBU
 *Sobbu is a cryptography tool with various encoding & encryption algorithm which also weaponized with hash cracking utility*
