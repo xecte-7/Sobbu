@@ -1,13 +1,13 @@
-<a href="https://github.com/xecte-7/Sobbu/releases"><img align="center" src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/version-1.4/banner-1.4.jpg" alt="Sobbu"></a>
+<a href="https://github.com/xecte-7/Sobbu/releases"><img align="center" src="https://raw.githubusercontent.com/xecte-7/projects-assets/main/Sobbu/version-1.4/logo-sobbu.png" alt="Sobbu"></a>
 
 # SOBBU
-*Sobbu is a cryptography tool for various encoding-decoding algorithm weaponized with Hash encrypting and Hash cracking*
+*Sobbu is a cryptography tool with various encoding & encryption algorithm which also weaponized with hash cracking utility*
 
 ### RELEASES
 Check Sobbu releases here :<br>
 https://github.com/xecte-7/Sobbu/releases/
 <br>
-*Note: GUI version is currently unavailable for other OS than Windows*
+*Note: Available for Windows and Linux in GUI mode*
 
 ### ABOUT AUTHOR
 > **[About Me]**<br>
@@ -22,6 +22,10 @@ https://github.com/xecte-7/Sobbu/releases/
 > *#XECTE_7 #Portal_IT_ID #DariTeknikUntukDunia #HMTK_FT_UBT*
 
 ### CHANGELOG
+> - version 1.5
+> 	- remake UI design
+> 	- adding 16 new classic-cipher and modern cipher algorithm
+> 	- fixing binary, octal, and hexadecimal encode/decode text
 > - version 1.4.5
 > 	- fixing interface problem (GUI)
 > 	- install Sobbu to Linux system with install.sh
